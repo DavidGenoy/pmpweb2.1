@@ -15,15 +15,21 @@ export default function V3Navbar() {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-primary-900/90 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center border-b border-white/10 pb-6">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-v3-accent flex items-center justify-center text-primary-900 font-tech font-bold text-2xl">
-            PM
+        <a href="/" className="flex items-center gap-5 group">
+          <div className="relative">
+            <div className="absolute inset-0 bg-v3-accent/10 group-hover:bg-v3-accent/20 transition-colors" />
+            <img 
+              src="https://nethingso.xyz/img/Logo_PMP_transparent_highres_2x.png" 
+              alt="PM" 
+              className="h-10 w-auto relative z-10 brightness-0 invert"
+              referrerPolicy="no-referrer"
+            />
           </div>
           <div className="flex flex-col">
-            <span className="font-tech font-bold text-xl leading-none text-white">PRIMARY MEDICAL</span>
+            <span className="font-tech font-bold text-xl leading-none text-white group-hover:text-v3-blue transition-colors">PRIMARY MEDICAL</span>
             <span className="font-mono text-[10px] text-white/50 tracking-widest uppercase">Physicians Group</span>
           </div>
-        </div>
+        </a>
 
         <div className="hidden md:flex items-center gap-12">
           {['Providers', 'Locations', 'Services'].map((item) => (

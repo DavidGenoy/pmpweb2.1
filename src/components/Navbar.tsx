@@ -32,19 +32,25 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-accent-500 flex items-center justify-center text-primary-900 font-serif font-bold text-xl">
-              PM
+          <a href="/" className="flex items-center gap-3 group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-accent-500/20 blur-lg rounded-full group-hover:bg-accent-500/40 transition-colors" />
+              <img 
+                src="https://nethingso.xyz/img/Logo_PMP_transparent_highres_2x.png" 
+                alt="Primary Medical Physicians" 
+                className="h-12 w-auto relative z-10 brightness-0 invert"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif font-bold text-lg leading-tight text-white">
+              <span className="font-serif font-bold text-lg leading-tight text-white group-hover:text-accent-400 transition-colors">
                 Primary Medical
               </span>
               <span className="text-xs font-medium text-accent-400 tracking-widest uppercase">
                 Physicians
               </span>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">

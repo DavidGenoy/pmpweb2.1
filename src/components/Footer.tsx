@@ -14,9 +14,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-accent-500 flex items-center justify-center text-primary-900 font-serif font-bold text-xl">
-                PM
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <div className="absolute inset-0 bg-accent-500/10 blur-md rounded-full" />
+                <img 
+                  src="https://nethingso.xyz/img/Logo_PMP_transparent_highres_2x.png" 
+                  alt="Primary Medical Physicians" 
+                  className="h-10 w-auto relative z-10 brightness-0 invert"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-lg leading-tight text-white">

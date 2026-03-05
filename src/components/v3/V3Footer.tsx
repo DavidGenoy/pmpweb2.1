@@ -62,12 +62,17 @@ export default function V3Footer() {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-white/50">
           <div className="flex items-center gap-4">
-            <div className="w-8 h-8 bg-v3-accent flex items-center justify-center text-primary-900 font-tech font-bold">PM</div>
+            <img 
+              src="https://nethingso.xyz/img/Logo_PMP_transparent_highres_2x.png" 
+              alt="PM" 
+              className="h-6 w-auto brightness-0 invert opacity-50"
+              referrerPolicy="no-referrer"
+            />
             <p className="font-tech font-bold uppercase tracking-widest text-sm">© {new Date().getFullYear()} Primary Medical Physicians</p>
           </div>
-          <div className="flex gap-8 font-mono text-[10px] uppercase tracking-widest text-white/50">
+          <div className="flex gap-8 font-mono text-[10px] uppercase tracking-widest">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
             <a href="#" className="hover:text-white transition-colors">HIPAA</a>

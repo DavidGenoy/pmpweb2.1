@@ -46,7 +46,15 @@ export default function V2Footer() {
         </div>
 
         <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 font-organic text-lg text-white/40">
-          <p>© {new Date().getFullYear()} Primary Medical Physicians.</p>
+          <div className="flex items-center gap-4">
+            <img 
+              src="https://nethingso.xyz/img/Logo_PMP_transparent_highres_2x.png" 
+              alt="Logo" 
+              className="h-6 w-auto brightness-0 invert opacity-40"
+              referrerPolicy="no-referrer"
+            />
+            <p>© {new Date().getFullYear()} Primary Medical Physicians.</p>
+          </div>
           <div className="flex gap-12">
             <a href="#" className="hover:text-white transition-colors">Privacy</a>
             <a href="#" className="hover:text-white transition-colors">Terms</a>

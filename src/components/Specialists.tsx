@@ -1,0 +1,214 @@
+import { motion, useScroll, AnimatePresence } from "motion/react";
+import { useRef, useState, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+
+const specialists = [
+  {
+    title: "Pulmonologist",
+    description: "Expert care for respiratory and lung-related conditions.",
+    image: "https://images.unsplash.com/photo-1584362946444-1e7c4f94e847?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Cardiologist",
+    description: "Comprehensive heart health and cardiovascular diagnostics.",
+    image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Clinical Research",
+    description: "Advancing medicine through dedicated clinical trials.",
+    image: "https://images.unsplash.com/photo-1579152276507-595d268c4222?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Dentist",
+    description: "Complete oral health and aesthetic dental solutions.",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Gastroenterologist",
+    description: "Specialized treatment for digestive system disorders.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Pain Management",
+    description: "Innovative therapies for chronic and acute pain relief.",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Psychotherapist",
+    description: "Compassionate mental health and emotional support.",
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Podiatrist",
+    description: "Expert foot and ankle care for all ages.",
+    image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=800&auto=format&fit=crop",
+  },
+];
+
+export default function Specialists() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const { scrollXProgress } = useScroll({
+    container: containerRef,
+  });
+
+  const scroll = useCallback((direction: 'left' | 'right') => {
+    if (containerRef.current) {
+      const scrollAmount = direction === 'left' ? -400 : 400;
+      containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isHovered) return;
+
+    const interval = setInterval(() => {
+      if (containerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+        // If we're at the end, loop back to start
+        if (scrollLeft + clientWidth >= scrollWidth - 20) {
+          containerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          containerRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+        }
+      }
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  return (
+    <section 
+      className="py-32 bg-transparent relative overflow-visible group/section"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl"
+        >
+          <h2 className="text-sm font-bold tracking-[0.2em] text-accent-400 uppercase mb-4">
+            Specialized Care
+          </h2>
+          <h3 className="text-4xl md:text-6xl font-serif font-medium text-white mb-6">
+            Our Specialists
+          </h3>
+          <p className="text-lg text-white/60">
+            Beyond primary care, we offer a wide range of specialized medical services to ensure comprehensive health management for our patients.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Horizontal Scroll Container Wrapper */}
+      <div className="relative px-4 sm:px-6 lg:px-8 pt-12">
+        {/* Navigation Arrows (Inside Slider, Centered) */}
+        <div className="absolute inset-y-0 left-0 right-0 pointer-events-none z-30 flex items-center justify-between px-4 md:px-12">
+          <button 
+            onClick={() => scroll('left')}
+            className="w-14 h-14 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white pointer-events-auto opacity-0 group-hover/section:opacity-40 hover:!opacity-100 transition-all hover:scale-110 active:scale-95"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button 
+            onClick={() => scroll('right')}
+            className="w-14 h-14 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white pointer-events-auto opacity-0 group-hover/section:opacity-40 hover:!opacity-100 transition-all hover:scale-110 active:scale-95"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Mobile Thumb Zones (Affordance) */}
+        <div 
+          className="absolute left-0 top-0 bottom-0 w-20 z-20 cursor-pointer md:hidden" 
+          onClick={() => scroll('left')}
+        />
+        <div 
+          className="absolute right-0 top-0 bottom-0 w-20 z-20 cursor-pointer md:hidden" 
+          onClick={() => scroll('right')}
+        />
+
+        <div 
+          ref={containerRef}
+          className="flex gap-8 overflow-x-auto pb-12 px-4 scrollbar-hide snap-x snap-mandatory relative z-10 overflow-y-visible"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {specialists.map((specialist, index) => (
+            <motion.div
+              key={specialist.title}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="flex-none w-[300px] md:w-[400px] snap-center"
+            >
+              <motion.div 
+                className="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl"
+                whileHover={{ 
+                  scale: 1.02, 
+                  y: -10,
+                  transition: { type: "spring", stiffness: 300, damping: 20 }
+                }}
+              >
+                {/* Border Beam Effect (Microinteraction) */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-30">
+                  <div className="absolute inset-0 border-2 border-accent-500/50 rounded-3xl" />
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-accent-500/20 to-transparent w-[200%] h-full -translate-x-full"
+                    animate={{ x: ["-100%", "100%"] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  />
+                </div>
+
+                {/* Parallax Image Effect */}
+                <motion.div 
+                  className="absolute inset-0 z-0"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <img
+                    src={specialist.image}
+                    alt={specialist.title}
+                    className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+
+                {/* Content Overlay */}
+                <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end bg-gradient-to-t from-primary-900 via-primary-900/20 to-transparent">
+                  <h4 className="text-2xl md:text-3xl font-serif font-medium text-white mb-3 group-hover:text-accent-400 transition-colors">
+                    {specialist.title}
+                  </h4>
+                  <p className="text-white/60 text-sm md:text-base leading-relaxed transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                    {specialist.description}
+                  </p>
+                  <div className="mt-6 flex items-center gap-2 text-accent-400 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </div>
+                  <div className="mt-4 w-12 h-1 bg-accent-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Scroll Progress Indicator */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+          <motion.div 
+            className="h-full bg-accent-500"
+            style={{ scaleX: scrollXProgress, originX: 0 }}
+          />
+        </div>
+        <div className="mt-4 flex justify-center md:hidden">
+          <p className="text-xs text-white/40 font-medium uppercase tracking-widest">Swipe to explore</p>
+        </div>
+      </div>
+    </section>
+  );
+}

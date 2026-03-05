@@ -13,6 +13,7 @@ import Hero from "./components/Hero";
 import Services from "./components/Services";
 import Locations from "./components/Locations";
 import Providers from "./components/Providers";
+import Specialists from "./components/Specialists";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import ToggleSwitch from "./components/ToggleSwitch";
@@ -54,6 +55,7 @@ export default function App() {
               <Hero />
               <Services />
               <Providers />
+              <Specialists />
               <Locations />
               <Testimonials />
             </main>
@@ -74,6 +76,7 @@ export default function App() {
               <V2Hero />
               <V2Services />
               <Providers />
+              <Specialists />
               <Locations />
               <Testimonials />
             </main>
@@ -94,6 +97,7 @@ export default function App() {
               <V3Hero />
               <V3Services />
               <Providers />
+              <Specialists />
               <Locations />
               <Testimonials />
             </main>

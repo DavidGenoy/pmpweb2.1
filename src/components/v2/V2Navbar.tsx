@@ -15,10 +15,18 @@ export default function V2Navbar() {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-primary-900/80 backdrop-blur-md py-4' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-v2-olive"></div>
-          <span className="font-organic text-2xl font-medium text-white tracking-tight">Primary Medical</span>
-        </div>
+        <a href="/" className="flex items-center gap-4 group">
+          <div className="relative">
+            <div className="absolute inset-0 bg-v2-olive/20 blur-xl rounded-full group-hover:bg-v2-olive/40 transition-colors" />
+            <img 
+              src="https://nethingso.xyz/img/Logo_PMP_transparent_highres_2x.png" 
+              alt="Primary Medical" 
+              className="h-10 w-auto relative z-10 brightness-0 invert"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <span className="font-organic text-2xl font-medium text-white tracking-tight group-hover:text-v2-olive transition-colors">Primary Medical</span>
+        </a>
 
         <div className="hidden md:flex items-center gap-12">
           {['Providers', 'Locations', 'Services', 'Portal'].map((item) => (
