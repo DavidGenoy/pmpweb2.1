@@ -79,11 +79,11 @@ export default function Specialists() {
 
   return (
     <section 
-      className="py-32 bg-transparent relative overflow-visible group/section"
+      className="pt-32 pb-16 bg-transparent relative overflow-visible group/section"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,7 +103,7 @@ export default function Specialists() {
       </div>
 
       {/* Horizontal Scroll Container Wrapper */}
-      <div className="relative px-4 sm:px-6 lg:px-8 pt-12">
+      <div className="relative px-4 sm:px-6 lg:px-8">
         {/* Navigation Arrows (Inside Slider, Centered) */}
         <div className="absolute inset-y-0 left-0 right-0 pointer-events-none z-30 flex items-center justify-between px-4 md:px-12">
           <button 
@@ -134,7 +134,7 @@ export default function Specialists() {
 
         <div 
           ref={containerRef}
-          className="flex gap-8 overflow-x-auto pb-12 px-4 scrollbar-hide snap-x snap-mandatory relative z-10 overflow-y-visible"
+          className="flex gap-8 overflow-x-auto pt-16 pb-12 px-4 scrollbar-hide snap-x snap-mandatory relative z-10 overflow-y-visible"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {specialists.map((specialist, index) => (
