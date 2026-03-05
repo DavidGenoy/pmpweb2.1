@@ -54,8 +54,17 @@ export default function Specialists() {
 
   const scroll = useCallback((direction: 'left' | 'right') => {
     if (containerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
       const scrollAmount = direction === 'left' ? -400 : 400;
-      containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      
+      // Wrap around logic
+      if (direction === 'right' && scrollLeft + clientWidth >= scrollWidth - 20) {
+        containerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (direction === 'left' && scrollLeft <= 20) {
+        containerRef.current.scrollTo({ left: scrollWidth, behavior: 'smooth' });
+      } else {
+        containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
     }
   }, []);
 

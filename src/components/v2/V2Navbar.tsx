@@ -25,7 +25,6 @@ export default function V2Navbar() {
               referrerPolicy="no-referrer"
             />
           </div>
-          <span className="font-organic text-2xl font-medium text-white tracking-tight group-hover:text-v2-olive transition-colors">Primary Medical</span>
         </a>
 
         <div className="hidden md:flex items-center gap-12">

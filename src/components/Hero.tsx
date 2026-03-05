@@ -67,8 +67,8 @@ export default function Hero() {
 
           {/* Contact & Hours Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.95, x: 0 }}
+            animate={{ opacity: 1, scale: 1, x: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between group hover:bg-white/10 transition-colors duration-500"
           >

@@ -25,10 +25,6 @@ export default function V3Navbar() {
               referrerPolicy="no-referrer"
             />
           </div>
-          <div className="flex flex-col">
-            <span className="font-tech font-bold text-xl leading-none text-white group-hover:text-v3-blue transition-colors">PRIMARY MEDICAL</span>
-            <span className="font-mono text-[10px] text-white/50 tracking-widest uppercase">Physicians Group</span>
-          </div>
         </a>
 
         <div className="hidden md:flex items-center gap-12">

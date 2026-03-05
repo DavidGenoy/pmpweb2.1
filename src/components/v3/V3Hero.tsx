@@ -52,8 +52,8 @@ export default function V3Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.95, x: 0 }}
+          animate={{ opacity: 1, scale: 1, x: 20 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative h-[700px] border-4 border-v3-ink bg-white/5 backdrop-blur-xl overflow-hidden flex flex-col justify-between p-8 sm:p-10 group hover:bg-white/10 transition-colors duration-500"
         >

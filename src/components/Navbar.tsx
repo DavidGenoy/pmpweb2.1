@@ -42,14 +42,6 @@ export default function Navbar() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="font-serif font-bold text-lg leading-tight text-white group-hover:text-accent-400 transition-colors">
-                Primary Medical
-              </span>
-              <span className="text-xs font-medium text-accent-400 tracking-widest uppercase">
-                Physicians
-              </span>
-            </div>
           </a>
 
           {/* Desktop Nav */}

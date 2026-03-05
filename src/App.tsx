@@ -53,10 +53,10 @@ export default function App() {
             <Navbar />
             <main>
               <Hero />
-              <Services />
+              <Locations />
               <Providers />
               <Specialists />
-              <Locations />
+              <Services />
               <Testimonials />
             </main>
             <Footer />
@@ -74,10 +74,10 @@ export default function App() {
             <V2Navbar />
             <main>
               <V2Hero />
-              <V2Services />
+              <Locations />
               <Providers />
               <Specialists />
-              <Locations />
+              <V2Services />
               <Testimonials />
             </main>
             <V2Footer />
@@ -95,10 +95,10 @@ export default function App() {
             <V3Navbar />
             <main>
               <V3Hero />
-              <V3Services />
+              <Locations />
               <Providers />
               <Specialists />
-              <Locations />
+              <V3Services />
               <Testimonials />
             </main>
             <V3Footer />
