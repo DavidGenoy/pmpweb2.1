@@ -111,19 +111,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Newsletter</h4>
-            <p className="text-white/70 text-sm mb-4">Stay updated with our latest health tips and news.</p>
-            <div className="flex flex-col gap-3">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:bg-white/10"
-              />
-              <button className="w-full bg-accent-500 hover:bg-accent-400 text-primary-900 py-3 rounded-xl font-bold transition-all text-sm shadow-lg">
-                Subscribe
-              </button>
-            </div>
-            <ul className="space-y-4 mt-8">
+            <h4 className="font-bold text-lg mb-6 text-white">Contact</h4>
+            <ul className="space-y-4">
               <li>
                 <a
                   href="tel:954-555-0123"

@@ -11,17 +11,7 @@ export default function V3Footer() {
             </h2>
             <div className="flex flex-col gap-8 mt-12">
               <div className="flex flex-col gap-4">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-white/50">Newsletter Signup</p>
-                <div className="flex gap-2">
-                  <input 
-                    type="email" 
-                    placeholder="ENTER EMAIL" 
-                    className="flex-1 bg-white/5 border-2 border-white/10 px-6 py-4 font-tech font-bold text-white focus:border-v3-accent transition-all uppercase tracking-widest"
-                  />
-                  <button className="bg-v3-accent text-primary-900 px-8 font-tech font-bold uppercase tracking-widest">
-                    GO
-                  </button>
-                </div>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-white/50">Contact</p>
               </div>
               <div className="flex items-center gap-6">
                 <div className="w-16 h-16 bg-v3-accent flex items-center justify-center text-primary-900">

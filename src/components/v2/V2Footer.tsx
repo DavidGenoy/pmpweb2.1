@@ -14,18 +14,8 @@ export default function V2Footer() {
           </div>
           
           <div>
-            <h4 className="font-organic text-xl text-white/40 uppercase tracking-widest mb-8">Newsletter</h4>
-            <div className="flex flex-col gap-6">
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                className="bg-white/5 border border-white/10 rounded-full px-8 py-4 font-organic text-xl text-white focus:bg-white/10 transition-all"
-              />
-              <button className="bg-v2-olive text-white px-8 py-4 rounded-full font-organic text-xl hover:bg-white hover:text-v2-olive transition-all">
-                Join
-              </button>
-            </div>
-            <div className="flex flex-col gap-6 font-organic text-xl mt-12">
+            <h4 className="font-organic text-xl text-white/40 uppercase tracking-widest mb-8">Contact</h4>
+            <div className="flex flex-col gap-6 font-organic text-xl">
               <a href="tel:9545550123" className="flex items-center gap-4 hover:text-v2-olive transition-colors">
                 <Phone className="w-5 h-5" /> (954) 555-0123
               </a>
