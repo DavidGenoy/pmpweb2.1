@@ -31,11 +31,15 @@
 
 @layer base {
   button, .btn {
-    @apply transition-all duration-200 ease-out;
+    @apply transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)];
   }
   
   button:hover:not(:disabled), .btn:hover:not(:disabled) {
-    @apply scale-[1.025] shadow-lg;
+    @apply scale-[1.05] shadow-[0_0_20px_rgba(0,168,150,0.3)] brightness-110;
+  }
+
+  button:active:not(:disabled), .btn:active:not(:disabled) {
+    @apply scale-[0.95] brightness-90;
   }
 
   button:focus-visible, .btn:focus-visible, a:focus-visible {
@@ -72,4 +76,192 @@ body {
 
 .animate-marquee {
   animation: marquee 20s linear infinite;
+}
+
+/* --- Scroll-Driven Animations System --- */
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes text-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0.8) translateZ(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+  }
+}
+
+@keyframes parallax-horizontal {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% + 100vw)); }
+}
+
+/* Native Scroll-Driven Animations */
+@supports (animation-timeline: view()) {
+  [data-animate="section"] {
+    view-timeline: --section-reveal block;
+    animation-timeline: --section-reveal;
+    animation-name: reveal;
+    animation-fill-mode: both;
+    animation-range: entry 10% cover 30%;
+  }
+
+  [data-animate="text"] {
+    view-timeline: --text-reveal block;
+    animation-timeline: --text-reveal;
+    animation-name: text-reveal;
+    animation-fill-mode: both;
+    animation-range: entry 15% cover 35%;
+  }
+
+  [data-animate="zoom-container"] {
+    view-timeline: --zoom-timeline block;
+  }
+
+  [data-animate="zoom"] {
+    animation-timeline: --zoom-timeline;
+    animation-name: zoom-in;
+    animation-fill-mode: both;
+    animation-range: entry 0% exit 100%;
+  }
+
+  [data-animate="parallax-track"] {
+    animation-name: parallax-horizontal;
+    animation-timeline: --parallax-timeline;
+    animation-fill-mode: both;
+    animation-range: entry 0% exit 100%;
+  }
+
+  .parallax-section {
+    view-timeline: --parallax-timeline block;
+  }
+}
+
+/* Fallback for non-supporting browsers */
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate]:not(.is-visible) {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-animate="section"]:not(.is-visible) {
+    transform: translateY(30px);
+    filter: blur(10px);
+  }
+
+  [data-animate="text"]:not(.is-visible) {
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-20px);
+  }
+
+  .is-visible[data-animate] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+  }
+
+  /* Staggered children */
+  [data-animate-stagger] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .is-visible[data-animate-stagger] > *:nth-child(1) { transition-delay: 0.1s; }
+  .is-visible[data-animate-stagger] > *:nth-child(2) { transition-delay: 0.2s; }
+  .is-visible[data-animate-stagger] > *:nth-child(3) { transition-delay: 0.3s; }
+  .is-visible[data-animate-stagger] > *:nth-child(4) { transition-delay: 0.4s; }
+  .is-visible[data-animate-stagger] > *:nth-child(5) { transition-delay: 0.5s; }
+  .is-visible[data-animate-stagger] > *:nth-child(6) { transition-delay: 0.6s; }
+
+  .is-visible[data-animate-stagger] > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate], [data-animate-stagger] > * {
+    animation: none !important;
+    transition: opacity 0.3s ease !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+  
+  .is-visible[data-animate], .is-visible[data-animate-stagger] > * {
+    opacity: 1 !important;
+  }
+}
+
+/* Micro-interactions */
+.card-hover {
+  @apply transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)];
+}
+
+.card-hover:hover {
+  @apply -translate-y-2 shadow-2xl border-accent-500/50 bg-white/10;
+}
+
+.image-parallax-container {
+  @apply overflow-hidden rounded-3xl;
+}
+
+.image-parallax {
+  @apply transition-transform duration-700 ease-out scale-105;
+}
+
+.image-parallax-container:hover .image-parallax {
+  @apply scale-110;
+}
+
+/* Horizontal Parallax Layout */
+.parallax-section {
+  height: 300vh; /* Scroll length */
+}
+
+.parallax-sticky {
+  @apply sticky top-0 h-screen flex items-center overflow-hidden;
+}
+
+.parallax-track {
+  @apply flex gap-8 px-[10vw] will-change-transform;
+}
+
+/* Snap/Step Experience */
+.snap-container {
+  @apply snap-y snap-mandatory overflow-y-auto h-screen;
+}
+
+.snap-section {
+  @apply snap-start h-screen flex items-center justify-center;
 }

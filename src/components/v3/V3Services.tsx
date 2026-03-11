@@ -11,31 +11,27 @@ export default function V3Services() {
   ];
 
   return (
-    <section className="bg-transparent text-white py-32 overflow-hidden">
+    <section className="bg-transparent text-white py-32 overflow-hidden section-reveal sda-section-reveal">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
-          <h2 className="font-tech text-6xl lg:text-8xl font-bold uppercase leading-none tracking-tighter">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12 reveal">
+          <h2 className="font-tech text-6xl lg:text-8xl font-bold uppercase leading-none tracking-tighter reveal-text">
             Precision <br /> <span className="text-v3-accent">Healthcare</span>
           </h2>
-          <p className="font-tech text-xl text-white/60 max-w-md font-medium leading-relaxed">
+          <p className="font-tech text-xl text-white/60 max-w-md font-medium leading-relaxed reveal">
             Our systematic approach ensures that every patient receives the highest standard of medical attention across all specialties.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-white/10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-white/10 stagger-grid">
           {services.map((s, i) => (
-            <motion.div
+            <div
               key={s.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="p-12 border-r border-b border-white/10 hover:bg-v3-accent hover:text-primary-900 transition-all duration-300 group cursor-pointer backdrop-blur-sm"
+              className="p-12 border-r border-b border-white/10 hover:bg-v3-accent hover:text-primary-900 transition-all duration-300 group cursor-pointer backdrop-blur-sm stagger-item sda-fade"
             >
               <span className="font-mono text-xs mb-8 block opacity-40 group-hover:opacity-100 uppercase tracking-widest">Service {s.id}</span>
               <h3 className="font-tech text-3xl font-bold uppercase mb-6 leading-tight">{s.title}</h3>
               <p className="font-tech text-lg opacity-60 group-hover:opacity-100 leading-relaxed font-medium">{s.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

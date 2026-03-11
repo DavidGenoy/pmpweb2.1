@@ -4,7 +4,7 @@ import HeroVideo from '../HeroVideo';
 
 export default function V2Hero() {
   return (
-    <section className="relative min-h-screen bg-transparent pt-32 pb-20 overflow-hidden">
+    <section className="relative min-h-screen bg-transparent pt-32 pb-20 overflow-hidden section-reveal sda-section-reveal">
       <HeroVideo 
         videoSrc="https://assets.mixkit.co/videos/preview/mixkit-nurse-preparing-a-vaccine-40340-large.mp4"
         posterSrc="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
@@ -16,14 +16,14 @@ export default function V2Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="font-organic text-7xl lg:text-8xl text-white leading-[0.95] mb-10">
+          <h1 className="font-organic text-7xl lg:text-8xl text-white leading-[0.95] mb-10 reveal-text">
             Care that feels <br />
             <span className="italic text-v2-olive">like home.</span>
           </h1>
-          <p className="font-organic text-2xl text-white/70 max-w-lg mb-12 leading-relaxed">
+          <p className="font-organic text-2xl text-white/70 max-w-lg mb-12 leading-relaxed reveal">
             Experience a more personal approach to primary care. With 16 dedicated providers across Broward, we prioritize your well-being with warmth and expertise.
           </p>
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-6 reveal">
             <button className="bg-v2-olive text-white px-10 py-5 rounded-full font-organic text-xl hover:bg-white hover:text-v2-olive transition-all">
               Schedule a Consultation
             </button>

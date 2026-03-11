@@ -98,6 +98,7 @@ export default function Specialists() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-2xl"
+          data-animate="text"
         >
           <h2 className="text-sm font-bold tracking-[0.2em] text-accent-400 uppercase mb-4">
             Specialized Care

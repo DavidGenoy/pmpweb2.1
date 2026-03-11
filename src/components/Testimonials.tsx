@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Quote, Star } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
 
 export default function Testimonials() {
   const testimonials = [
@@ -21,33 +22,76 @@ export default function Testimonials() {
       text: "They truly care about preventative health. My provider caught an issue early during a routine screening that could have been serious. I am forever grateful to this team.",
       rating: 5,
     },
+    {
+      name: "Michael L.",
+      location: "Davie",
+      text: "The best medical experience I've had in Florida. Professional, efficient, and compassionate. Highly recommend to anyone looking for a primary care provider.",
+      rating: 5,
+    },
+    {
+      name: "Elena V.",
+      location: "Weston",
+      text: "I love the holistic approach they take. They don't just treat symptoms; they look at your overall lifestyle and well-being. Truly a modern practice.",
+      rating: 5,
+    },
   ];
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrollStart = 0;
+      const scrollEnd = -rect.height + window.innerHeight;
+      
+      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+        const progress = Math.abs(rect.top) / (rect.height - window.innerHeight);
+        setScrollProgress(progress);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="py-24 bg-transparent text-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm font-bold tracking-widest text-accent-400 uppercase mb-4">
-            Patient Stories
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-serif font-medium mb-6">
-            Hear From Our Community
-          </h3>
-          <p className="text-lg text-white/70">
-            We are proud to serve the Broward County community and are honored
-            by the trust our patients place in us.
-          </p>
+    <section 
+      ref={sectionRef}
+      className="parallax-section relative bg-transparent text-white"
+    >
+      <div className="parallax-sticky">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-12 absolute top-24 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-sm font-bold tracking-widest text-accent-400 uppercase mb-4">
+              Patient Stories
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-medium mb-6">
+              Hear From Our Community
+            </h3>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div 
+          ref={trackRef}
+          className="parallax-track"
+          style={{ 
+            transform: `translateX(calc(-${scrollProgress * 60}%))`,
+            transition: 'transform 0.1s ease-out'
+          }}
+          data-animate="parallax-track"
+        >
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={testimonial.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl relative group hover:bg-white/10 transition-colors duration-300"
+              className="flex-shrink-0 w-[85vw] md:w-[450px] bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative group hover:bg-white/10 transition-all duration-500"
+              style={{
+                opacity: 0.5 + (1 - Math.abs(scrollProgress * (testimonials.length - 1) - index)) * 0.5,
+                transform: `scale(${0.9 + (1 - Math.abs(scrollProgress * (testimonials.length - 1) - index)) * 0.1})`,
+                filter: `blur(${Math.abs(scrollProgress * (testimonials.length - 1) - index) * 2}px)`
+              }}
             >
               <Quote className="absolute top-8 right-8 w-12 h-12 text-white/5 group-hover:text-accent-500/20 transition-colors duration-300" />
 
@@ -72,7 +116,7 @@ export default function Testimonials() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

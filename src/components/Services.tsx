@@ -49,9 +49,9 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-transparent relative">
+    <section id="services" className="py-24 bg-transparent relative overflow-hidden" data-animate="section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16" data-animate="text">
           <h2 className="text-sm font-bold tracking-widest text-accent-400 uppercase mb-4">
             Our Services
           </h2>
@@ -64,15 +64,11 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-animate-stagger="true">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-accent-500 transition-all duration-300 cursor-pointer backdrop-blur-sm"
+              className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-accent-500 transition-all duration-500 cursor-pointer backdrop-blur-sm card-hover"
             >
               <div className="w-14 h-14 rounded-2xl bg-white/10 group-hover:bg-white flex items-center justify-center mb-6 shadow-sm transition-colors duration-300">
                 <service.icon className="w-7 h-7 text-accent-400 group-hover:text-accent-500" />
@@ -83,7 +79,7 @@ export default function Services() {
               <p className="text-white/60 group-hover:text-primary-900/80 leading-relaxed transition-colors duration-300">
                 {service.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

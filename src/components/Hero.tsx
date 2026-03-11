@@ -4,21 +4,22 @@ import HeroVideo from "./HeroVideo";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-transparent">
-      <HeroVideo 
-        videoSrc="https://assets.mixkit.co/videos/preview/mixkit-medical-professional-working-with-a-microscope-40342-large.mp4"
-        posterSrc="https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=2574&auto=format&fit=crop"
-        overlayOpacity={0.5}
-      />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl"
-          >
+    <section className="relative min-h-[150vh] bg-transparent" data-animate="zoom-container">
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+        <HeroVideo 
+          videoSrc="https://assets.mixkit.co/videos/preview/mixkit-medical-professional-working-with-a-microscope-40342-large.mp4"
+          posterSrc="https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=2574&auto=format&fit=crop"
+          overlayOpacity={0.5}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10" data-animate="zoom">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-2xl"
+            >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500/20 text-accent-400 font-medium text-sm mb-8 border border-accent-500/30">
               <Star className="w-4 h-4 fill-current" />
               <span>Top-Rated Primary Care in Broward County</span>
@@ -146,7 +147,8 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 }
 

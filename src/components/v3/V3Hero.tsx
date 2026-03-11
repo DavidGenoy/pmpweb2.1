@@ -4,7 +4,7 @@ import HeroVideo from '../HeroVideo';
 
 export default function V3Hero() {
   return (
-    <section className="relative min-h-screen bg-transparent pt-40 pb-20 overflow-hidden border-b border-white/10">
+    <section className="relative min-h-screen bg-transparent pt-40 pb-20 overflow-hidden border-b border-white/10 section-reveal sda-section-reveal">
       <HeroVideo 
         videoSrc="https://assets.mixkit.co/videos/preview/mixkit-doctor-checking-a-patients-lungs-with-a-stethoscope-40341-large.mp4"
         posterSrc="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop"
@@ -21,16 +21,16 @@ export default function V3Hero() {
             <span>Top-Rated Primary Care in Broward</span>
           </div>
           
-          <h1 className="font-tech text-7xl lg:text-9xl font-bold text-white leading-[0.88] mb-12 uppercase tracking-tighter">
+          <h1 className="font-tech text-7xl lg:text-9xl font-bold text-white leading-[0.88] mb-12 uppercase tracking-tighter reveal-text">
             Your Health <br />
             <span className="text-v3-blue">Our Priority</span>
           </h1>
           
-          <p className="font-tech text-xl text-white/70 max-w-lg mb-12 leading-relaxed font-medium">
+          <p className="font-tech text-xl text-white/70 max-w-lg mb-12 leading-relaxed font-medium reveal">
             Comprehensive, compassionate primary care with 16 expert providers across 6 convenient locations in Broward County.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col sm:flex-row gap-6 reveal">
             <button className="bg-v3-accent text-primary-900 px-10 py-5 font-tech font-bold text-lg uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-3">
               Book Appointment <ArrowRight className="w-5 h-5" />
             </button>

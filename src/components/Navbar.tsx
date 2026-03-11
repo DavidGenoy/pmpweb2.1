@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import ChromaticLink from "./ChromaticLink";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,13 +48,13 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <ChromaticLink
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-white/70 hover:text-accent-400 transition-colors"
+                className="text-sm font-medium text-white/70 hover:text-accent-400"
               >
                 {link.name}
-              </a>
+              </ChromaticLink>
             ))}
           </nav>
 

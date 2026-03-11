@@ -109,7 +109,7 @@ export default function Providers() {
   return (
     <section id="providers" className="py-24 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8" data-animate="text">
           <div className="max-w-2xl">
             <h2 className="text-sm font-bold tracking-widest text-accent-400 uppercase mb-4">
               Meet Our Team
@@ -136,7 +136,7 @@ export default function Providers() {
           </button>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-8" data-animate-stagger="true">
           <AnimatePresence mode="popLayout">
             {visibleProviders.map((provider, index) => (
               <motion.div
@@ -150,13 +150,13 @@ export default function Providers() {
                   delay: isExpanded && index >= initialCount ? (index - initialCount) * 0.05 : 0,
                   ease: [0.23, 1, 0.32, 1]
                 }}
-                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] group bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
+                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] group bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 backdrop-blur-sm card-hover"
               >
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-80 overflow-hidden image-parallax-container">
                   <img
                     src={provider.image}
                     alt={provider.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 image-parallax"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

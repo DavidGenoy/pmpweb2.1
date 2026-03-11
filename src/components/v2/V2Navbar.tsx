@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
+import ChromaticLink from '../ChromaticLink';
 
 export default function V2Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,9 +30,9 @@ export default function V2Navbar() {
 
         <div className="hidden md:flex items-center gap-12">
           {['Providers', 'Locations', 'Services', 'Portal'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="font-organic text-lg text-white/70 hover:text-v2-olive transition-colors">
+            <ChromaticLink key={item} href={`#${item.toLowerCase()}`} className="font-organic text-lg text-white/70 hover:text-v2-olive">
               {item}
-            </a>
+            </ChromaticLink>
           ))}
           <button className="bg-v2-olive text-white px-8 py-3 rounded-full font-organic text-lg hover:bg-white hover:text-v2-olive transition-all shadow-sm">
             Book Visit

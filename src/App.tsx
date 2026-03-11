@@ -106,6 +106,36 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      {/* Global SVG Filter for Fluid Distortion */}
+      <svg className="fixed pointer-events-none opacity-0 h-0 w-0">
+        <defs>
+          <filter id="fluid-distort">
+            <feTurbulence 
+              type="fractalNoise" 
+              baseFrequency="0.01 0.01" 
+              numOctaves="1" 
+              result="warp" 
+              seed="1"
+            >
+              <animate 
+                attributeName="baseFrequency" 
+                values="0.01 0.01; 0.02 0.02; 0.01 0.01" 
+                dur="10s" 
+                repeatCount="indefinite" 
+              />
+            </feTurbulence>
+            <feDisplacementMap 
+              id="displacement-map"
+              in="SourceGraphic" 
+              in2="warp" 
+              scale="0" 
+              xChannelSelector="R" 
+              yChannelSelector="G" 
+            />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Version Switcher UI */}
       <div className="fixed bottom-8 left-1/2 z-[100] flex -translate-x-1/2 flex-col items-center gap-4">
         <div className="flex gap-4 rounded-2xl border border-white/10 bg-black/80 p-4 shadow-2xl backdrop-blur-xl">
