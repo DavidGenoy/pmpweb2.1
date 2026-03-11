@@ -51,7 +51,7 @@ function LocationCard({ location, index }: { location: Location; index: number; 
       >
         {/* Front Side */}
         <div className="absolute inset-0 h-full w-full backface-hidden">
-          <div className="h-full w-full bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors duration-300 flex flex-col shadow-lg card-hover">
+          <div className="h-full w-full bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors duration-300 flex flex-col shadow-lg">
             <div className="flex justify-between items-start mb-6">
               <h4 className="text-2xl font-bold text-white">
                 {location.name}
@@ -103,7 +103,7 @@ function LocationCard({ location, index }: { location: Location; index: number; 
           className="absolute inset-0 h-full w-full backface-hidden"
           style={{ transform: "rotateY(180deg)" }}
         >
-          <div className="h-full w-full relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl group/back">
+          <div className="h-full w-full relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl group/back reveal-scale">
             <motion.img
               src={location.image}
               alt={`Exterior of ${location.name} location`}
@@ -185,7 +185,7 @@ export default function Locations() {
       className="py-24 bg-transparent text-white relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8" data-animate="text">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 reveal-up">
           <div className="max-w-2xl">
             <h2 className="text-sm font-bold tracking-widest text-accent-400 uppercase mb-4">
               6 Convenient Locations
@@ -193,7 +193,7 @@ export default function Locations() {
             <h3 className="text-4xl md:text-5xl font-serif font-medium mb-6">
               Find a Provider Near You in Broward County
             </h3>
-            <p className="text-lg text-white/70">
+            <p className="text-lg text-white/70 reveal-text-scrub">
               With six state-of-the-art facilities across Broward, high-quality
               primary care is never far from home.
             </p>
@@ -204,7 +204,7 @@ export default function Locations() {
           </button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-animate-stagger="true">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
           {locations.map((location, index) => (
             <LocationCard key={location.name} location={location} index={index} />
           ))}

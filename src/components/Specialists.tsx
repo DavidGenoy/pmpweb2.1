@@ -92,24 +92,18 @@ export default function Specialists() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl"
-          data-animate="text"
-        >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 reveal-up">
+        <div className="max-w-2xl">
           <h2 className="text-sm font-bold tracking-[0.2em] text-accent-400 uppercase mb-4">
             Specialized Care
           </h2>
           <h3 className="text-4xl md:text-6xl font-serif font-medium text-white mb-6">
             Our Specialists
           </h3>
-          <p className="text-lg text-white/60">
+          <p className="text-lg text-white/60 reveal-text-scrub">
             Beyond primary care, we offer a wide range of specialized medical services to ensure comprehensive health management for our patients.
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Horizontal Scroll Container Wrapper */}
@@ -144,49 +138,26 @@ export default function Specialists() {
 
         <div 
           ref={containerRef}
-          className="flex gap-8 overflow-x-auto pt-16 pb-12 px-4 scrollbar-hide snap-x snap-mandatory relative z-10 overflow-y-visible"
+          className="flex gap-8 overflow-x-auto pt-16 pb-12 px-4 scrollbar-hide snap-x snap-mandatory relative z-10 overflow-y-visible reveal-stagger"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {specialists.map((specialist, index) => (
-            <motion.div
+          {specialists.map((specialist) => (
+            <div
               key={specialist.title}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
               className="flex-none w-[300px] md:w-[400px] snap-center"
             >
-              <motion.div 
-                className="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl"
-                whileHover={{ 
-                  scale: 1.02, 
-                  y: -10,
-                  transition: { type: "spring", stiffness: 300, damping: 20 }
-                }}
+              <div 
+                className="group relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
-                {/* Border Beam Effect (Microinteraction) */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-30">
-                  <div className="absolute inset-0 border-2 border-accent-500/50 rounded-3xl" />
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-accent-500/20 to-transparent w-[200%] h-full -translate-x-full"
-                    animate={{ x: ["-100%", "100%"] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
-
                 {/* Parallax Image Effect */}
-                <motion.div 
-                  className="absolute inset-0 z-0"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.8 }}
-                >
+                <div className="absolute inset-0 z-0 reveal-scale">
                   <img
                     src={specialist.image}
                     alt={specialist.title}
                     className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
                     referrerPolicy="no-referrer"
                   />
-                </motion.div>
+                </div>
 
                 {/* Content Overlay */}
                 <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end bg-gradient-to-t from-primary-900 via-primary-900/20 to-transparent">
@@ -201,8 +172,8 @@ export default function Specialists() {
                   </div>
                   <div className="mt-4 w-12 h-1 bg-accent-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

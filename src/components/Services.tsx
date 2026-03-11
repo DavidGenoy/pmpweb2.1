@@ -49,26 +49,26 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-transparent relative overflow-hidden" data-animate="section">
+    <section id="services" className="py-24 bg-transparent relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16" data-animate="text">
+        <div className="text-center max-w-3xl mx-auto mb-16 reveal-up">
           <h2 className="text-sm font-bold tracking-widest text-accent-400 uppercase mb-4">
             Our Services
           </h2>
           <h3 className="text-4xl md:text-5xl font-serif font-medium text-white mb-6">
             Comprehensive Care for Your Entire Family
           </h3>
-          <p className="text-lg text-white/60">
+          <p className="text-lg text-white/60 reveal-text-scrub">
             From routine checkups to managing complex conditions, our team of 16
             providers offers a full spectrum of primary care services.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-animate-stagger="true">
-          {services.map((service, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
+          {services.map((service) => (
             <div
               key={service.title}
-              className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-accent-500 transition-all duration-500 cursor-pointer backdrop-blur-sm card-hover"
+              className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-accent-500 transition-all duration-300 cursor-pointer backdrop-blur-sm"
             >
               <div className="w-14 h-14 rounded-2xl bg-white/10 group-hover:bg-white flex items-center justify-center mb-6 shadow-sm transition-colors duration-300">
                 <service.icon className="w-7 h-7 text-accent-400 group-hover:text-accent-500" />

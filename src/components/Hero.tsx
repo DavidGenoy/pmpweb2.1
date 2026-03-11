@@ -4,36 +4,30 @@ import HeroVideo from "./HeroVideo";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[150vh] bg-transparent" data-animate="zoom-container">
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <HeroVideo 
-          videoSrc="https://assets.mixkit.co/videos/preview/mixkit-medical-professional-working-with-a-microscope-40342-large.mp4"
-          posterSrc="https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=2574&auto=format&fit=crop"
-          overlayOpacity={0.5}
-        />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10" data-animate="zoom">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            {/* Content */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-2xl"
-            >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500/20 text-accent-400 font-medium text-sm mb-8 border border-accent-500/30">
+    <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-transparent">
+      <HeroVideo 
+        videoSrc="https://assets.mixkit.co/videos/preview/mixkit-medical-professional-working-with-a-microscope-40342-large.mp4"
+        posterSrc="https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=2574&auto=format&fit=crop"
+        overlayOpacity={0.5}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          {/* Content */}
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500/20 text-accent-400 font-medium text-sm mb-8 border border-accent-500/30 reveal-up">
               <Star className="w-4 h-4 fill-current" />
               <span>Top-Rated Primary Care in Broward County</span>
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-serif font-medium text-white leading-[1.1] mb-6 text-balance">
+            <h1 className="text-5xl lg:text-7xl font-serif font-medium text-white leading-[1.1] mb-6 text-balance reveal-text">
               Your Health is Our <span className="text-accent-400 italic">Primary</span> Focus.
             </h1>
             
-            <p className="text-lg text-white/70 mb-10 max-w-xl leading-relaxed">
+            <p className="text-lg text-white/70 mb-10 max-w-xl leading-relaxed reveal-text-scrub">
               Comprehensive, compassionate primary care with 16 expert providers across 6 convenient locations in Broward County. We're here for you, every step of the way.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 reveal-up">
               <button className="bg-accent-500 hover:bg-accent-400 text-primary-900 px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                 Book Appointment
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -44,7 +38,7 @@ export default function Hero() {
             </div>
 
             {/* Trust Indicators */}
-            <div className="mt-12 flex items-center gap-8 pt-8 border-t border-white/10">
+            <div className="mt-12 flex items-center gap-8 pt-8 border-t border-white/10 reveal-stagger">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-accent-500/20 flex items-center justify-center text-accent-400">
                   <Users className="w-6 h-6" />
@@ -64,14 +58,11 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact & Hours Card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: 0 }}
-            animate={{ opacity: 1, scale: 1, x: 20 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between group hover:bg-white/10 transition-colors duration-500"
+          <div
+            className="relative lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between group hover:bg-white/10 transition-colors duration-500 reveal-up"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl -z-10 group-hover:bg-accent-500/20 transition-colors duration-700"></div>
             
@@ -144,11 +135,10 @@ export default function Hero() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 }
 

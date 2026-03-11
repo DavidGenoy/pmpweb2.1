@@ -33,12 +33,14 @@ export default function HeroVideo({
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
       {/* Poster Image - Always present as fallback or initial state */}
-      <img
-        src={posterSrc}
-        alt="Hero Background Poster"
-        className="absolute inset-0 w-full h-full object-cover"
-        referrerPolicy="no-referrer"
-      />
+      <div className="absolute inset-0 w-full h-full reveal-scale">
+        <img
+          src={posterSrc}
+          alt="Hero Background Poster"
+          className="w-full h-full object-cover"
+          referrerPolicy="no-referrer"
+        />
+      </div>
 
       {/* Video - Only for non-mobile */}
       {!isMobile && (

@@ -6,6 +6,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import ParticleBackground from "./components/ParticleBackground";
+import ScrollManager from "./components/ScrollManager";
 
 // Version 1 Components
 import Navbar from "./components/Navbar";
@@ -40,6 +41,7 @@ export default function App() {
   return (
     <div className={`min-h-screen selection:bg-accent-500/30 selection:text-primary-900 overflow-x-hidden ${highContrast ? 'contrast-125 grayscale-[0.2]' : ''}`}>
       {showParticles && <ParticleBackground />}
+      <ScrollManager />
       
       <AnimatePresence mode="wait">
         {version === "v1" && (
