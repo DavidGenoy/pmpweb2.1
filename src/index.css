@@ -96,6 +96,21 @@ body {
   overflow: hidden;
 }
 
+.parallax-grid-wrapper {
+  overflow: visible;
+}
+
+.parallax-column {
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .parallax-grid-wrapper {
+    display: grid;
+    align-items: start;
+  }
+}
+
 .reveal-scale img {
   width: 100%;
   height: 100%;

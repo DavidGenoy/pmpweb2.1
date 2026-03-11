@@ -147,6 +147,36 @@ export default function ScrollManager() {
 
     initScrubText();
 
+    // 4. Multi-Column Parallax
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      const parallaxWrappers = document.querySelectorAll('.parallax-grid-wrapper');
+      
+      parallaxWrappers.forEach((wrapper) => {
+        const columns = wrapper.querySelectorAll('.parallax-column');
+        
+        columns.forEach((col) => {
+          const speed = parseFloat(col.getAttribute('data-speed') || '1');
+          const movement = (speed - 1) * 200; // Adjust multiplier for intensity
+          
+          gsap.fromTo(col,
+            { y: movement },
+            {
+              y: -movement,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: wrapper,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+              }
+            }
+          );
+        });
+      });
+    });
+
     // Handle Resize
     let resizeTimer: NodeJS.Timeout;
     window.addEventListener('resize', () => {
