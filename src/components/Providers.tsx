@@ -4,100 +4,100 @@ import { useState } from "react";
 
 const allProviders = [
   {
-    name: "Dr. Sarah Jenkins",
+    name: "Moises Issa",
+    degree: "M.D., F.A.C.S.G.",
+    specialty: "Internal Medicine - Geriatrics",
+    image: "https://nethingso.xyz/providers/issa_resized.webp",
+  },
+  {
+    name: "William Pena",
+    degree: "M.D.",
     specialty: "Internal Medicine",
-    location: "Hollywood Main",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop",
+    image: "https://nethingso.xyz/providers/wpena_resized.webp",
   },
   {
-    name: "Dr. Michael Chen",
-    specialty: "Family Medicine",
-    location: "Pembroke Pines",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop",
+    name: "Ramon Berenguer",
+    degree: "M.D.",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/berenguer_resized.webp",
   },
   {
-    name: "Dr. Elena Rodriguez",
-    specialty: "Pediatrics",
-    location: "Fort Lauderdale",
-    image: "https://images.unsplash.com/photo-1594824436998-058a231b611c?q=80&w=800&auto=format&fit=crop",
+    name: "Oswaldo Sandoval",
+    degree: "M.D.",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/sandoval_resized.webp",
   },
   {
-    name: "Dr. James Wilson",
-    specialty: "Geriatrics",
-    location: "Plantation",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop",
+    name: "Pedro Castellanos",
+    degree: "M.D.",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/castellanos_resized.webp",
   },
   {
-    name: "Dr. Amara Okafor",
-    specialty: "Family Medicine",
-    location: "Hollywood Main",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=800&auto=format&fit=crop",
+    name: "Dean Guadagna",
+    degree: "D.O.",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/dean_resized.webp",
   },
   {
-    name: "Dr. David Miller",
+    name: "Sharon Sabaitue",
+    degree: "ANP-CNP",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/sharon_resized.webp",
+  },
+  {
+    name: "Ruth Catignas",
+    degree: "DNP, APRN-BC",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/ruth_resized.webp",
+  },
+  {
+    name: "Joseph Mascenik",
+    degree: "DMS, PA-C",
     specialty: "Internal Medicine",
-    location: "Pembroke Pines",
-    image: "https://images.unsplash.com/photo-1622902046580-2b47f47f0871?q=80&w=800&auto=format&fit=crop",
+    image: "https://nethingso.xyz/providers/mascenik_resized.webp",
   },
   {
-    name: "Dr. Lisa Thompson",
-    specialty: "Family Medicine",
-    location: "Fort Lauderdale",
-    image: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=800&auto=format&fit=crop",
+    name: "Yordy Brito",
+    degree: "FNP",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/brito_resized.webp",
   },
   {
-    name: "Dr. Robert Garcia",
-    specialty: "Sports Medicine",
-    location: "Plantation",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop",
+    name: "Carolina Raudez",
+    degree: "APRN, FNP-BC",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/raudez_resized.webp",
   },
   {
-    name: "Dr. Sophie Laurent",
-    specialty: "Internal Medicine",
-    location: "Hollywood Main",
-    image: "https://images.unsplash.com/photo-1594824436998-058a231b611c?q=80&w=800&auto=format&fit=crop",
+    name: "Yunior Quesada",
+    degree: "FNP-BC",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/quesada_resized.webp",
   },
   {
-    name: "Dr. Kevin Park",
-    specialty: "Family Medicine",
-    location: "Pembroke Pines",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=800&auto=format&fit=crop",
+    name: "Sira Pena",
+    degree: "APRN, FNP-BC",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/sira_resized.webp",
   },
   {
-    name: "Dr. Maria Santos",
-    specialty: "Pediatrics",
-    location: "Fort Lauderdale",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop",
+    name: "Nancy LaCroix",
+    degree: "APRN, MSN-AGPCNP",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/lacroix_resized.webp",
   },
   {
-    name: "Dr. Thomas Wright",
-    specialty: "Geriatrics",
-    location: "Plantation",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop",
+    name: "Maria Morejon",
+    degree: "ARNP, FNP-C",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/morejon_resized.webp",
   },
   {
-    name: "Dr. Rachel Green",
-    specialty: "Internal Medicine",
-    location: "Hollywood Main",
-    image: "https://images.unsplash.com/photo-1594824436998-058a231b611c?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Dr. Chris Evans",
-    specialty: "Family Medicine",
-    location: "Pembroke Pines",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Dr. Jessica Alba",
-    specialty: "Pediatrics",
-    location: "Fort Lauderdale",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Dr. Mark Ruffalo",
-    specialty: "Geriatrics",
-    location: "Plantation",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop",
+    name: "Yoel Ramos",
+    degree: "PA",
+    specialty: "Family Practice",
+    image: "https://nethingso.xyz/providers/ramos_resized.webp",
   },
 ];
 
@@ -152,11 +152,11 @@ export default function Providers() {
                 }}
                 className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] group bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
               >
-                <div className="relative h-80 overflow-hidden reveal-scale">
+                <div className="relative w-full aspect-[4/5] overflow-hidden reveal-scale">
                   <img
                     src={provider.image}
                     alt={provider.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
+                    className="absolute inset-0 w-full h-full object-cover object-[50%_20%] max-sm:object-[50%_28%] group-hover:scale-105 transition-transform duration-700 opacity-90"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -172,11 +172,11 @@ export default function Providers() {
                     {provider.name}
                   </h4>
                   <p className="text-accent-400 font-medium text-sm mb-3">
-                    {provider.specialty}
+                    {provider.degree}
                   </p>
                   <div className="flex items-center gap-2 text-white/50 text-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent-500" />
-                    {provider.location}
+                    {provider.specialty}
                   </div>
                   <button className="w-full mt-6 bg-white/10 hover:bg-accent-500 hover:text-primary-900 text-white py-3 rounded-xl font-medium transition-colors text-sm">
                     Book Appointment
