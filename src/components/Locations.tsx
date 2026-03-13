@@ -5,10 +5,9 @@ import { MapPin, Phone, Clock, ArrowRight, RotateCw } from "lucide-react";
 interface Location {
   name: string;
   address: string;
-  city: string;
-  phone: string;
   hours: string;
   image: string;
+  direction: string;
 }
 
 function LocationCard({ location, index }: { location: Location; index: number; key?: string }) {
@@ -28,7 +27,7 @@ function LocationCard({ location, index }: { location: Location; index: number; 
 
   return (
     <motion.div 
-      className="group perspective-1000 h-[420px] w-full cursor-pointer"
+      className="group perspective-1000 h-[420px] max-sm:h-auto max-sm:aspect-[3/4] w-full cursor-pointer"
       onClick={handleFlip}
       onKeyDown={handleKeyDown}
       tabIndex={0}
@@ -63,33 +62,28 @@ function LocationCard({ location, index }: { location: Location; index: number; 
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent-400 mt-0.5 shrink-0" />
                 <div>
-                  <p className="text-white/90">{location.address}</p>
-                  <p className="text-white/70">{location.city}</p>
+                  <p className="text-white/90 whitespace-pre-line">{location.address}</p>
                 </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent-400 shrink-0" />
-                <span className="text-white/90">
-                  {location.phone}
-                </span>
               </div>
 
               <div className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-accent-400 mt-0.5 shrink-0" />
-                <p className="text-white/70">{location.hours}</p>
+                <p className="text-white/70 whitespace-pre-line">{location.hours}</p>
               </div>
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10 flex gap-4">
               <button 
-                onClick={(e) => { e.stopPropagation(); }}
+                onClick={(e) => { e.stopPropagation(); window.open(location.direction, '_blank'); }}
                 className="flex-1 bg-white/10 hover:bg-white/20 text-white py-3 rounded-xl font-medium transition-colors text-sm"
               >
                 Directions
               </button>
               <button 
-                onClick={(e) => { e.stopPropagation(); }}
+                onClick={(e) => { 
+                  e.stopPropagation(); 
+                  window.open('https://healow.com/apps/practice/primary-medical-physicians-llc-hollywood-fl-23412?v=2&t=1', '_blank');
+                }}
                 className="flex-1 bg-accent-500 hover:bg-accent-400 text-primary-900 py-3 rounded-xl font-bold transition-colors text-sm"
               >
                 Book Here
@@ -103,13 +97,13 @@ function LocationCard({ location, index }: { location: Location; index: number; 
           className="absolute inset-0 h-full w-full backface-hidden"
           style={{ transform: "rotateY(180deg)" }}
         >
-          <div className="h-full w-full relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl group/back reveal-scale">
+            <div className="h-full w-full relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl group/back reveal-scale bg-white/10">
             <motion.img
               src={location.image}
               alt={`Exterior of ${location.name} location`}
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-contain p-4"
               referrerPolicy="no-referrer"
-              whileHover={!shouldReduceMotion ? { scale: 1.1, x: 5, y: 5 } : {}}
+              whileHover={!shouldReduceMotion ? { scale: 1.05 } : {}}
               transition={{ duration: 0.8, ease: "easeOut" }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
@@ -130,52 +124,53 @@ function LocationCard({ location, index }: { location: Location; index: number; 
 export default function Locations() {
   const locations = [
     {
-      name: "Hollywood Main",
-      address: "4000 Hollywood Blvd, Suite 100",
-      city: "Hollywood, FL 33021",
-      phone: "(954) 555-0101",
-      hours: "Mon-Fri: 8am - 5pm",
-      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop",
+      name: "Hollywood Taft (Main)",
+      address: "6517 Taft St\nSuite 102\nHollywood, FL 33024",
+      hours: "Mon-Fri: 8:00am - 5:30pm\nSat: 8:30am - 1:00pm\nSunday: 9:00am - 3:30pm",
+      direction: "https://maps.app.goo.gl/wyLpLiDysZodzGH96",
+      image: "https://nethingso.xyz/locations/locations-2-taft-6517.webp",
+    },
+    {
+      name: "Hollywood Johnson",
+      address: "3800 Johnson St\nSuite E\nHollywood, FL 33021",
+      hours: "Mon-Fri: 8:30am - 5:00pm",
+      direction: "https://maps.app.goo.gl/cykjZd8Sat7HysHj7",
+      image: "https://nethingso.xyz/locations/locations-1-johnson.webp",
     },
     {
       name: "Pembroke Pines",
-      address: "10000 Pines Blvd, Suite 200",
-      city: "Pembroke Pines, FL 33024",
-      phone: "(954) 555-0102",
-      hours: "Mon-Fri: 8am - 5pm, Sat: 9am - 1pm",
-      image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=800&auto=format&fit=crop",
+      address: "601 N Flamingo Rd\nSuite 304\nPembroke Pines, FL 33028",
+      hours: "Mon-Fri: 8:30am - 5:00pm",
+      direction: "https://maps.app.goo.gl/jYy8nKjJT1ByxSwq7",
+      image: "https://nethingso.xyz/locations/locations-3-pines.webp",
     },
     {
-      name: "Fort Lauderdale",
-      address: "2000 E Commercial Blvd",
-      city: "Fort Lauderdale, FL 33308",
-      phone: "(954) 555-0103",
-      hours: "Mon-Fri: 8am - 6pm",
-      image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop",
+      name: "Davie Manor",
+      address: "7630 SW 34 Manor\nSuite 400\nDavie, FL 33328",
+      hours: "Mon-Fri: 8:00am - 5:30pm",
+      direction: "https://maps.app.goo.gl/REEL5UjBenHyC8BC7",
+      image: "https://nethingso.xyz/locations/locations-4-davie2.webp",
+    },
+    {
+      name: "Davie",
+      address: "10650 W State Rd 84\nSuite 104\nDavie, FL 33324",
+      hours: "Mon-Fri: 8:30am - 5:00pm",
+      direction: "https://maps.app.goo.gl/hTqVsDXbMJxnvVnh6",
+      image: "https://nethingso.xyz/locations/locations-5-davie.webp",
     },
     {
       name: "Plantation",
-      address: "8000 W Broward Blvd",
-      city: "Plantation, FL 33324",
-      phone: "(954) 555-0104",
-      hours: "Mon-Fri: 8am - 5pm",
-      image: "https://images.unsplash.com/photo-1504813184591-01592fd03cf7?q=80&w=800&auto=format&fit=crop",
+      address: "320 S State Rd 7\nSuite 100\nPlantation, FL 33317",
+      hours: "Mon-Fri: 8:30am - 5:00pm",
+      direction: "https://maps.app.goo.gl/CBrtERZQd37qiMb39",
+      image: "https://nethingso.xyz/locations/locations-6-plantation.webp",
     },
     {
-      name: "Coral Springs",
-      address: "3000 University Dr",
-      city: "Coral Springs, FL 33065",
-      phone: "(954) 555-0105",
-      hours: "Mon-Fri: 8am - 5pm",
-      image: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-      name: "Weston",
-      address: "1600 Town Center Blvd",
-      city: "Weston, FL 33326",
-      phone: "(954) 555-0106",
-      hours: "Mon-Fri: 8am - 5pm",
-      image: "https://images.unsplash.com/photo-1538108149393-fdfd81690933?q=80&w=800&auto=format&fit=crop",
+      name: "Aventura",
+      address: "21000 NE 28th Ave\nSuite 203\nAventura, FL 33180",
+      hours: "Mon-Fri: 8:30am - 5:00pm",
+      direction: "https://maps.app.goo.gl/7bX7q3JUDopi8ZAd9",
+      image: "https://nethingso.xyz/locations/locations-7-aventura.webp",
     },
   ];
 
@@ -188,7 +183,7 @@ export default function Locations() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 reveal-up">
           <div className="max-w-2xl">
             <h2 className="text-sm font-bold tracking-widest text-accent-400 uppercase mb-4">
-              6 Convenient Locations
+              7 Convenient Locations
             </h2>
             <h3 className="text-4xl md:text-5xl font-serif font-medium mb-6">
               Find a Provider Near You in Broward County
@@ -204,9 +199,11 @@ export default function Locations() {
           </button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
+        <div className="flex flex-wrap justify-center gap-8 reveal-stagger">
           {locations.map((location, index) => (
-            <LocationCard key={location.name} location={location} index={index} />
+            <div key={location.name} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)]">
+              <LocationCard location={location} index={index} />
+            </div>
           ))}
         </div>
       </div>
