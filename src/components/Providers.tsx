@@ -118,7 +118,7 @@ const allProviders = [
 ];
 
 export default function Providers() {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const initialCount = 5;
   const visibleProviders = isExpanded ? allProviders : allProviders.slice(0, initialCount);
 
