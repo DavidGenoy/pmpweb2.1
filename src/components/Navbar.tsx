@@ -51,7 +51,7 @@ export default function Navbar() {
               <ChromaticLink
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-white/70 hover:text-accent-400"
+                className="text-base font-medium text-white/70 hover:text-accent-400"
               >
                 {link.name}
               </ChromaticLink>
@@ -60,17 +60,22 @@ export default function Navbar() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="tel:954-555-0123"
+            <ChromaticLink
+              href="tel:9543999014"
               className="flex items-center gap-2 text-sm font-medium text-white/70 hover:text-accent-400 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>(954) 555-0123</span>
-            </a>
-            <button className="bg-accent-500 hover:bg-accent-400 text-primary-900 px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 shadow-sm hover:shadow-md">
+              <span>(954) 399-9014</span>
+            </ChromaticLink>
+            <a 
+              href="https://healow.com/apps/practice/primary-medical-physicians-llc-hollywood-fl-23412?v=2&t=1"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-accent-500 hover:bg-accent-400 text-primary-900 px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 shadow-sm hover:shadow-md"
+            >
               <Calendar className="w-4 h-4" />
               Book Appointment
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -98,27 +103,32 @@ export default function Navbar() {
           >
             <div className="px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <ChromaticLink
                   key={link.name}
                   href={link.href}
                   className="text-base font-medium text-white py-2 border-b border-white/5"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </ChromaticLink>
               ))}
               <div className="pt-4 flex flex-col gap-3">
-                <a
-                  href="tel:954-555-0123"
+                <ChromaticLink
+                  href="tel:9543999014"
                   className="flex items-center justify-center gap-2 text-white font-medium py-3 rounded-xl bg-white/5"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>(954) 555-0123</span>
-                </a>
-                <button className="bg-accent-500 text-primary-900 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                  <span>(954) 399-9014</span>
+                </ChromaticLink>
+                <a 
+                  href="https://healow.com/apps/practice/primary-medical-physicians-llc-hollywood-fl-23412?v=2&t=1"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-accent-500 text-primary-900 py-3 rounded-xl font-bold flex items-center justify-center gap-2"
+                >
                   <Calendar className="w-5 h-5" />
                   Book Appointment
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

@@ -6,6 +6,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import ChromaticLink from "./ChromaticLink";
 
 export default function Footer() {
   return (
@@ -27,7 +28,7 @@ export default function Footer() {
             </div>
             <p className="text-white/70 leading-relaxed text-sm">
               Providing comprehensive, compassionate primary care to the Broward
-              County community through our 16 expert providers across 6
+              County community through our 16 expert providers across 7
               convenient locations.
             </p>
             <div className="flex items-center gap-4">
@@ -65,12 +66,12 @@ export default function Footer() {
                 "Contact Us",
               ].map((link) => (
                 <li key={link}>
-                  <a
+                  <ChromaticLink
                     href="#"
                     className="text-white/70 hover:text-accent-400 transition-colors text-sm font-medium"
                   >
                     {link}
-                  </a>
+                  </ChromaticLink>
                 </li>
               ))}
             </ul>
@@ -89,13 +90,13 @@ export default function Footer() {
                 "Weston",
               ].map((location) => (
                 <li key={location}>
-                  <a
+                  <ChromaticLink
                     href="#locations"
-                    className="text-white/70 hover:text-accent-400 transition-colors text-sm font-medium flex items-center gap-2"
+                    className="text-white/70 hover:text-accent-400 transition-colors text-sm font-medium flex items-center gap-2 flex-nowrap"
                   >
-                    <MapPin className="w-4 h-4 text-accent-500/50" />
-                    {location}
-                  </a>
+                    <MapPin className="w-4 h-4 shrink-0 text-accent-500/50" />
+                    <span className="whitespace-nowrap">{location}</span>
+                  </ChromaticLink>
                 </li>
               ))}
             </ul>
@@ -106,22 +107,22 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6 text-white">Contact</h4>
             <ul className="space-y-4">
               <li>
-                <a
-                  href="tel:954-555-0123"
-                  className="text-white/70 hover:text-accent-400 transition-colors text-sm font-medium flex items-center gap-3"
+                <ChromaticLink
+                  href="tel:9543999014"
+                  className="text-white/70 hover:text-accent-400 transition-colors text-sm font-medium flex items-center gap-3 flex-nowrap"
                 >
-                  <Phone className="w-5 h-5 text-accent-500" />
-                  (954) 555-0123
-                </a>
+                  <Phone className="w-5 h-5 shrink-0 text-accent-500" />
+                  <span className="whitespace-nowrap">(954) 399-9014</span>
+                </ChromaticLink>
               </li>
               <li>
-                <a
-                  href="mailto:info@primarymedical.com"
-                  className="text-white/70 hover:text-accent-400 transition-colors text-sm font-medium flex items-center gap-3"
+                <ChromaticLink
+                  href="mailto:info@pmpfla.com"
+                  className="text-white/70 hover:text-accent-400 transition-colors text-sm font-medium flex items-center gap-3 flex-nowrap"
                 >
-                  <Mail className="w-5 h-5 text-accent-500" />
-                  info@primarymedical.com
-                </a>
+                  <Mail className="w-5 h-5 shrink-0 text-accent-500" />
+                  <span className="whitespace-nowrap">info@pmpfla.com</span>
+                </ChromaticLink>
               </li>
             </ul>
           </div>
@@ -133,15 +134,15 @@ export default function Footer() {
             reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">
+            <ChromaticLink href="#" className="hover:text-white transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
+            </ChromaticLink>
+            <ChromaticLink href="#" className="hover:text-white transition-colors">
               Terms of Service
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
+            </ChromaticLink>
+            <ChromaticLink href="#" className="hover:text-white transition-colors">
               HIPAA Notice
-            </a>
+            </ChromaticLink>
           </div>
         </div>
       </div>

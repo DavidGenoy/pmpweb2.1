@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Star, ShieldCheck, Users, Phone, Printer, Mail, Clock, Instagram } from "lucide-react";
 import HeroVideo from "./HeroVideo";
+import ChromaticLink from "./ChromaticLink";
 
 export default function Hero() {
   return (
@@ -24,17 +25,25 @@ export default function Hero() {
             </h1>
             
             <p className="text-lg text-white/70 mb-10 max-w-xl leading-relaxed reveal-text-scrub">
-              Comprehensive, compassionate primary care with 16 expert providers across 6 convenient locations in Broward County. We're here for you, every step of the way.
+              Comprehensive, compassionate primary care with 16 expert providers across 7 convenient locations in Broward County. We're here for you, every step of the way.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 reveal-up">
-              <button className="bg-accent-500 hover:bg-accent-400 text-primary-900 px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+              <a 
+                href="https://healow.com/apps/practice/primary-medical-physicians-llc-hollywood-fl-23412?v=2&t=1"
+                target="_blank"
+                rel="noreferrer"
+                className="bg-accent-500 hover:bg-accent-400 text-primary-900 px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
                 Book Appointment
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-full font-medium transition-all flex items-center justify-center gap-2 text-lg backdrop-blur-md">
+              </a>
+              <a 
+                href="#locations"
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-full font-medium transition-all flex items-center justify-center gap-2 text-lg backdrop-blur-md"
+              >
                 Find a Location
-              </button>
+              </a>
             </div>
 
             {/* Trust Indicators */}
@@ -53,7 +62,7 @@ export default function Hero() {
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="font-bold text-white text-xl">6</p>
+                  <p className="font-bold text-white text-xl">7</p>
                   <p className="text-sm text-white/50 font-medium">Broward Locations</p>
                 </div>
               </div>
@@ -62,7 +71,7 @@ export default function Hero() {
 
           {/* Contact & Hours Card */}
           <div
-            className="relative lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between group hover:bg-white/10 transition-colors duration-500 reveal-up"
+            className="relative lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 sm:p-10 pb-12 sm:pb-12 flex flex-col justify-between group hover:bg-white/10 transition-colors duration-500 reveal-up"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl -z-10 group-hover:bg-accent-500/20 transition-colors duration-700"></div>
             
@@ -76,18 +85,18 @@ export default function Hero() {
                   Contact Us
                 </h3>
                 <div className="space-y-4 text-lg text-white/80 ml-2">
-                  <a href="tel:9543999014" className="flex items-center gap-4 hover:text-accent-400 transition-colors group/link">
-                    <Phone className="w-5 h-5 text-white/40 group-hover/link:text-accent-400 transition-colors" /> 
-                    <span className="font-medium tracking-wide">954-399-9014</span>
-                  </a>
-                  <div className="flex items-center gap-4">
-                    <Printer className="w-5 h-5 text-white/40" /> 
-                    <span className="tracking-wide">Fax: 954-367-7175</span>
+                  <ChromaticLink href="tel:9543999014" className="flex items-center gap-4 flex-nowrap hover:text-accent-400 transition-colors group/link">
+                    <Phone className="w-5 h-5 shrink-0 text-white/40 group-hover/link:text-accent-400 transition-colors" /> 
+                    <span className="font-medium tracking-wide whitespace-nowrap">954-399-9014</span>
+                  </ChromaticLink>
+                  <div className="flex items-center gap-4 flex-nowrap">
+                    <Printer className="w-5 h-5 shrink-0 text-white/40" /> 
+                    <span className="tracking-wide whitespace-nowrap">Fax: 954-367-7175</span>
                   </div>
-                  <a href="mailto:info@pmpfla.com" className="flex items-center gap-4 hover:text-accent-400 transition-colors group/link">
-                    <Mail className="w-5 h-5 text-white/40 group-hover/link:text-accent-400 transition-colors" /> 
-                    <span className="tracking-wide">info@pmpfla.com</span>
-                  </a>
+                  <ChromaticLink href="mailto:info@pmpfla.com" className="flex items-center gap-4 flex-nowrap hover:text-accent-400 transition-colors group/link">
+                    <Mail className="w-5 h-5 shrink-0 text-white/40 group-hover/link:text-accent-400 transition-colors" /> 
+                    <span className="tracking-wide whitespace-nowrap">info@pmpfla.com</span>
+                  </ChromaticLink>
                 </div>
               </div>
 
@@ -100,17 +109,17 @@ export default function Hero() {
                   Working Hours
                 </h3>
                 <div className="space-y-4 text-white/80 ml-2">
-                  <div className="flex justify-between items-center border-b border-white/10 pb-3 hover:border-accent-500/50 transition-colors">
-                    <span className="font-medium uppercase tracking-wider text-sm text-white/60">Monday - Friday</span>
-                    <span className="font-medium">8:00 AM – 5:30 PM</span>
+                  <div className="flex flex-col sm:flex-row justify-between sm:items-center border-b border-white/10 pb-3 hover:border-accent-500/50 transition-colors gap-1 sm:gap-4">
+                    <span className="font-medium uppercase tracking-wider text-xs sm:text-sm text-white/60 whitespace-nowrap">Monday - Friday</span>
+                    <span className="font-medium text-sm sm:text-base whitespace-nowrap">8:00 AM – 5:30 PM</span>
                   </div>
-                  <div className="flex justify-between items-center border-b border-white/10 pb-3 hover:border-accent-500/50 transition-colors">
-                    <span className="font-medium uppercase tracking-wider text-sm text-white/60">Saturday</span>
-                    <span className="font-medium">8:30 AM – 1:00 PM</span>
+                  <div className="flex flex-col sm:flex-row justify-between sm:items-center border-b border-white/10 pb-3 hover:border-accent-500/50 transition-colors gap-1 sm:gap-4">
+                    <span className="font-medium uppercase tracking-wider text-xs sm:text-sm text-white/60 whitespace-nowrap">Saturday</span>
+                    <span className="font-medium text-sm sm:text-base whitespace-nowrap">8:30 AM – 1:00 PM</span>
                   </div>
-                  <div className="flex justify-between items-center pb-2 hover:text-accent-400 transition-colors">
-                    <span className="font-medium uppercase tracking-wider text-sm text-white/60">Sunday</span>
-                    <span className="font-medium">9:00 AM – 3:30 PM</span>
+                  <div className="flex flex-col sm:flex-row justify-between sm:items-center pb-2 hover:text-accent-400 transition-colors gap-1 sm:gap-4">
+                    <span className="font-medium uppercase tracking-wider text-xs sm:text-sm text-white/60 whitespace-nowrap">Sunday</span>
+                    <span className="font-medium text-sm sm:text-base whitespace-nowrap">9:00 AM – 3:30 PM</span>
                   </div>
                 </div>
               </div>

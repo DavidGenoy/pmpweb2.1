@@ -1,6 +1,7 @@
 import { motion, useScroll, AnimatePresence } from "motion/react";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import ChromaticLink from "./ChromaticLink";
 
 const specialists = [
   {
@@ -167,9 +168,9 @@ export default function Specialists() {
                   <p className="text-white/60 text-sm md:text-base leading-relaxed transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     {specialist.description}
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-accent-400 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <ChromaticLink href="#services" className="mt-6 flex items-center gap-2 text-accent-400 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     Learn More <ArrowRight className="w-4 h-4" />
-                  </div>
+                  </ChromaticLink>
                   <div className="mt-4 w-12 h-1 bg-accent-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                 </div>
               </div>

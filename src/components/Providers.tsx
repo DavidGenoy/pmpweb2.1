@@ -8,96 +8,112 @@ const allProviders = [
     degree: "M.D., F.A.C.S.G.",
     specialty: "Internal Medicine - Geriatrics",
     image: "https://nethingso.xyz/providers/issa_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/moises-issa-2847656",
   },
   {
     name: "William Pena",
     degree: "M.D.",
     specialty: "Internal Medicine",
     image: "https://nethingso.xyz/providers/wpena_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/william-pena-3241271",
   },
   {
     name: "Ramon Berenguer",
     degree: "M.D.",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/berenguer_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/ramon-berenguer-3192693",
   },
   {
     name: "Oswaldo Sandoval",
     degree: "M.D.",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/sandoval_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/oswaldo-sandoval-3188584",
   },
   {
     name: "Pedro Castellanos",
     degree: "M.D.",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/castellanos_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/pedro-castellanos-3191163",
   },
   {
     name: "Dean Guadagna",
     degree: "D.O.",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/dean_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/dean-guadagna-3801766",
   },
   {
     name: "Sharon Sabaitue",
     degree: "ANP-CNP",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/sharon_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/sharon-macrohonsabaitue-3188585",
   },
   {
     name: "Ruth Catignas",
     degree: "DNP, APRN-BC",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/ruth_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/ruth-catignas-3180952",
   },
   {
     name: "Joseph Mascenik",
     degree: "DMS, PA-C",
     specialty: "Internal Medicine",
     image: "https://nethingso.xyz/providers/mascenik_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/joseph-mascenik-2878871",
   },
   {
     name: "Yordy Brito",
     degree: "FNP",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/brito_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/yordy-britoaguila-3188588",
   },
   {
     name: "Carolina Raudez",
     degree: "APRN, FNP-BC",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/raudez_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/carolina-raudez-3180552",
   },
   {
     name: "Yunior Quesada",
     degree: "FNP-BC",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/quesada_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/yunior-quesadajerez-3195423",
   },
   {
     name: "Sira Pena",
     degree: "APRN, FNP-BC",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/sira_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/sirahaydee-penaalcantara-3178726",
   },
   {
     name: "Nancy LaCroix",
     degree: "APRN, MSN-AGPCNP",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/lacroix_resized.webp",
+    bookingUrl: "https://healow.com/apps/provider/nancy-lacroix-3838823",
   },
   {
     name: "Maria Morejon",
     degree: "ARNP, FNP-C",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/morejon_resized.webp",
+    bookingUrl: "https://healow.com/apps/practice/primary-medical-physicians-llc-hollywood-fl-23412?v=2&t=1",
   },
   {
     name: "Yoel Ramos",
     degree: "PA",
     specialty: "Family Practice",
     image: "https://nethingso.xyz/providers/ramos_resized.webp",
+    bookingUrl: "https://healow.com/apps/practice/primary-medical-physicians-llc-hollywood-fl-23412?v=2&t=1",
   },
 ];
 
@@ -178,9 +194,14 @@ export default function Providers() {
                     <span className="w-1.5 h-1.5 rounded-full bg-accent-500" />
                     {provider.specialty}
                   </div>
-                  <button className="w-full mt-6 bg-white/10 hover:bg-accent-500 hover:text-primary-900 text-white py-3 rounded-xl font-medium transition-colors text-sm">
+                  <a 
+                    href={provider.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full mt-6 bg-white/10 hover:bg-accent-500 hover:text-primary-900 text-white py-3 rounded-xl font-medium transition-colors text-sm inline-flex items-center justify-center"
+                  >
                     Book Appointment
-                  </button>
+                  </a>
                 </div>
               </motion.div>
             ))}

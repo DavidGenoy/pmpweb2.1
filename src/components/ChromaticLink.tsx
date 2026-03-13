@@ -3,7 +3,7 @@ import gsap from "gsap";
 
 type ChromaticLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
-  children: string;
+  children: React.ReactNode;
   className?: string;
 };
 
@@ -118,23 +118,22 @@ export default function ChromaticLink({ href, children, className = "", ...props
       ref={linkRef}
       href={href}
       className={`chromatic-link group relative inline-block ${className}`}
-      data-text={children}
       style={{ filter: "url(#fluid-distort)" }}
       {...props}
     >
-      <span ref={textRef} className="relative z-10 block transition-opacity duration-200 group-hover:opacity-90">
+      <span ref={textRef} className="relative z-10 inline-flex items-center gap-[inherit] transition-opacity duration-200 group-hover:opacity-90">
         {children}
       </span>
       <span
         ref={greenRef}
-        className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 select-none"
+        className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 select-none inline-flex items-center gap-[inherit]"
         style={{ color: "#00a896", mixBlendMode: "screen" }}
       >
         {children}
       </span>
       <span
         ref={blueRef}
-        className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 select-none"
+        className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 select-none inline-flex items-center gap-[inherit]"
         style={{ color: "#0a192f", mixBlendMode: "screen" }}
       >
         {children}

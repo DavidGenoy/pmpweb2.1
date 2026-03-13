@@ -189,7 +189,7 @@ export default function Locations() {
               Find a Provider Near You in Broward County
             </h3>
             <p className="text-lg text-white/70 reveal-text-scrub">
-              With six state-of-the-art facilities across Broward, high-quality
+              With seven state-of-the-art facilities across Broward, high-quality
               primary care is never far from home.
             </p>
           </div>
