@@ -71,7 +71,7 @@ export default function Hero() {
 
           {/* Contact & Hours Card */}
           <div
-            className="relative lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 sm:p-10 pb-12 sm:pb-12 flex flex-col justify-between group hover:bg-white/10 transition-colors duration-500 reveal-up"
+            className="relative lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 sm:p-10 pb-14 sm:pb-16 flex flex-col justify-between group hover:bg-white/10 transition-colors duration-500 reveal-up"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl -z-10 group-hover:bg-accent-500/20 transition-colors duration-700"></div>
             
@@ -127,20 +127,18 @@ export default function Hero() {
 
             {/* Footer / Socials */}
             <div className="mt-8 pt-6 border-t border-white/10">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-white mb-3">Patient Testimonials</p>
-                  <a href="https://g.page/primarymedical" target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 group/review bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full transition-all border border-white/5 hover:border-white/20">
-                    <div className="flex gap-1">
-                      {[1, 2, 3, 4, 5].map((i) => (
-                        <Star key={i} className="w-4 h-4 fill-accent-400 text-accent-400 group-hover/review:scale-110 transition-transform" style={{ transitionDelay: `${i * 30}ms` }} />
-                      ))}
-                    </div>
-                    <span className="text-sm font-medium text-white/80 group-hover/review:text-white transition-colors">Google Reviews</span>
-                  </a>
-                </div>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-white/5 hover:bg-accent-500 hover:text-primary-900 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-accent-500/20 border border-white/10 hover:border-transparent text-white">
-                  <Instagram className="w-6 h-6" />
+              <p className="text-sm font-medium text-white mb-3">Patient Testimonials</p>
+              <div className="flex flex-row items-center justify-between w-full mt-3">
+                <a href="https://g.page/primarymedical" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 sm:gap-3 group/review bg-white/5 hover:bg-white/10 px-3 sm:px-4 py-2 rounded-full transition-all border border-white/5 hover:border-white/20 shrink-0">
+                  <div className="flex gap-0.5 sm:gap-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-accent-400 text-accent-400 group-hover/review:scale-110 transition-transform" style={{ transitionDelay: `${i * 30}ms` }} />
+                    ))}
+                  </div>
+                  <span className="text-[10px] sm:text-sm font-medium text-white/80 group-hover/review:text-white transition-colors whitespace-nowrap">Google Reviews</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 hover:bg-accent-500 hover:text-primary-900 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-accent-500/20 border border-white/10 hover:border-transparent text-white shrink-0">
+                  <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               </div>
             </div>
