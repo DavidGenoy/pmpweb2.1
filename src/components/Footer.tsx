@@ -24,14 +24,6 @@ export default function Footer() {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-serif font-bold text-lg leading-tight text-white">
-                  Primary Medical
-                </span>
-                <span className="text-xs font-medium text-accent-400 tracking-widest uppercase">
-                  Physicians
-                </span>
-              </div>
             </div>
             <p className="text-white/70 leading-relaxed text-sm">
               Providing comprehensive, compassionate primary care to the Broward
